@@ -40,20 +40,20 @@ class labyrinth:
         connected_points=set()
         connected_points.add(point_a)
         def check_neighbors(point):
-            if chararray[point[0]+1][point[1]]=='.' and (point[0]+1,point[1]) not in connected_points:
-                connected_points.add((point[0]+1,point[1]))
-                check_neighbors((point[0]+1,point[1]))
-            if chararray[point[0]-1][point[1]]=='.' and (point[0]-1,point[1]) not in connected_points:
-                connected_points.add((point[0]-1,point[1]))
-                check_neighbors((point[0]-1,point[1]))            
-            if chararray[point[0]][point[1]-1]=='.' and (point[0],point[1]-1) not in connected_points:
-                connected_points.add((point[0],point[1]-1))
-                check_neighbors((point[0],point[1]-1))            
-            if chararray[point[0]][point[1]+1]=='.' and (point[0],point[1]+1) not in connected_points:
-                connected_points.add((point[0],point[1]+1))
-                check_neighbors((point[0],point[1]+1)) 
-
-            
+            up, down, left, right=(point[0]-1,point[1]),(point[0]+1,point[1]),(point[0],point[1]-1),(point[0],point[1]+1)
+            if chararray[down[0]][down[1]]=='.' and down not in connected_points:
+                connected_points.add(down)
+                check_neighbors(down)
+            if chararray[up[0]][up[1]]=='.' and up not in connected_points:
+                connected_points.add(up)
+                check_neighbors(up)            
+            if chararray[left[0]][left[1]]=='.' and left not in connected_points:
+                connected_points.add(left)
+                check_neighbors(left)            
+            if chararray[right[0]][right[1]]=='.' and right not in connected_points:
+                connected_points.add(right)
+                check_neighbors(right) 
+          
         check_neighbors(point_a)
             
         return point_b in connected_points
