@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 """
 https://contest.yandex.ru/contest/12341/problems/E/
 """
